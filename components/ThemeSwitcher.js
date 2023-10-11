@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { RiMoonLine, RiSunLine } from "react-icons/ri";
@@ -11,6 +12,9 @@ const ThemeSwitcher = () => {
 
   useEffect(() => {
     setMounted(true);
+    // Check if the user's system prefers dark mode
+    const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    setEnabled(prefersDarkMode);
   }, []);
 
   if (!mounted) {
