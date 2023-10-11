@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const OurApproach = () => {
   const projects = [
@@ -39,20 +40,25 @@ const OurApproach = () => {
     },
   ];
   return (
-    <div
-      id="ourApproach"
-      className="h-screen relative text-center"
-    >
-      <div className="relative z-20 max-w-[1240px] m-h-full mx-auto p-2 flex justify-center items-center">
-        <h2 className="py-8 text-2xl text-center md:text-5xl font-bold">
+    <div id="ourApproach" className="h-screen relative text-center">
+      <div className="relative z-20 max-w-[1240px] m-h-full mx-auto p-2 flex flex-col lg:flex-row justify-center items-center">
+        <h2 className="py-8 text-2xl text-center md:text-5xl font-bold text-[#3c68cd]">
           Our Approach
         </h2>
         <div className="w-full h-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-10">
           {projects.map((project) => (
-            <div className="w-full h-full flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44">
-              <img src={project.image} />
+            <div
+              key={project.id}
+              className="w-full h-full flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44"
+            >
+              <Image
+                src={project.image}
+                alt={project.title}
+                width={600}
+                height={400}
+              />
               <div>
-                <h4 className="text-4xl font-semibold text-center">
+                <h4 className="text-4xl font-semibold text-center mb-4">
                   {project.title}
                 </h4>
                 <p className="text-lg text-center md:text-left">
@@ -63,7 +69,7 @@ const OurApproach = () => {
           ))}
         </div>
       </div>
-      <div className="w-full absolute z-0 top-[10%] bg-[#d0cdcd38] left-0 h-[650px] skew-y-6"></div>
+      <div className="hidden lg:flex w-full absolute z-0 top-[10%] bg-[#d0cdcd38] left-0 h-[700px] skew-y-6"></div>
     </div>
   );
 };

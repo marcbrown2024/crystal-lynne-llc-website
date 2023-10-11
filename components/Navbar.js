@@ -3,15 +3,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import ThemeSwitcher from "./ThemeSwitcher";
+import { motion } from "framer-motion";
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from "react-icons/ai";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 
+// import NavLogo from '../public/assets/navLogo.png'
+
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const [shadow, setShadow] = useState(false);
-  const [navBg, setNavBg] = useState("#ecf0f3");
-  const [linkColor, setLinkColor] = useState("#1f2937");
+  const pathname = usePathname();
 
   const handleNav = () => {
     setNav(!nav);
@@ -29,9 +33,13 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div
-      style={{ backgroundColor: `${navBg}` }}
-      className="fixed w-full h-20 shadow-2xl z-[100] bg-[#ecf0f3]"
+    <header
+      id="navbar"
+      className={
+        shadow
+          ? "fixed w-full h-20 shadow-xl z-[100] bg-[#ecf0f3] ease-in-out duration-300"
+          : "fixed w-full h-20 z-[100]"
+      }
     >
       <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
         <Link href="/">
@@ -45,32 +53,58 @@ const Navbar = () => {
           LOGO
         </Link>
         <div>
-          <ul className="hidden lg:flex">
-            <li className="ml-10 text-sm uppercase hover:border-b border-[#000]">
-              <Link href="/#main">Home</Link>
+          <ul className="hidden lg:flex items-center justify-center gap-8">
+            <li>
+              <Link className="liItems relative z-50" href="/#main">
+                Home
+              </Link>
             </li>
-            <li className="ml-10 text-sm uppercase hover:border-b border-[#000]">
-              <Link href="/#about">About</Link>
+
+            {pathname === "/" && (
+              <li>
+                <Link className="liItems relative z-50" href="/#about">
+                  About
+                </Link>
+              </li>
+            )}
+
+            {pathname === "/" && (
+              <li>
+                <Link className="liItems relative z-50" href="/#services">
+                  Services
+                </Link>
+              </li>
+            )}
+
+            {pathname === "/" && (
+              <li>
+                <Link className="liItems relative z-50" href="/#ourApproach">
+                  Our Approach
+                </Link>
+              </li>
+            )}
+
+            <li>
+              <Link className="liItems relative z-50" href="/consultation">
+                Book A Consultation
+              </Link>
             </li>
-            <li className="ml-10 text-sm uppercase hover:border-b border-[#000]">
-              <Link href="/#services">Services</Link>
-            </li>
-            <li className="ml-10 text-sm uppercase hover:border-b border-[#000]">
-              <Link href="/#ourApproach">Our Approach</Link>
-            </li>
-            <li className="ml-10 text-sm uppercase hover:border-b border-[#000]">
-              <Link href="/consultation">Book A Consultation</Link>
-            </li>
-            <li className="ml-10 text-sm uppercase hover:border-b border-[#000]">
-              <Link href="/#contact">Contact</Link>
+
+            {pathname === "/" && (
+              <li>
+                <Link className="liItems relative z-50" href="/#contact">
+                  Contact
+                </Link>
+              </li>
+            )}
+
+            <li className="flex items-center justify-center">
+              <ThemeSwitcher />
             </li>
           </ul>
+
           {/* Hamburger Icon */}
-          <div
-            style={{ color: `${linkColor} mr-12` }}
-            onClick={handleNav}
-            className="lg:hidden"
-          >
+          <div onClick={handleNav} className="lg:hidden mr-12">
             <AiOutlineMenu size={25} />
           </div>
         </div>
@@ -151,27 +185,27 @@ const Navbar = () => {
               </p>
               <div className="flex items-center justify-center my-8 sm:my-4 w-full h-auto sm:w-[80%] ">
                 <a href="" target="_blank" rel="noreferrer">
-                  <div className="rounded-full shadow-lg shadow-gray-800 p-3 mr-2 md:mr-0 cursor-pointer hover:scale-105 ease-in duration-300">
+                  <div className="rounded-full shadow-md shadow-gray-700 p-3 mr-2 md:mr-0 cursor-pointer hover:scale-105 ease-in duration-300">
                     <FaLinkedinIn />
                   </div>
                 </a>
                 <a href="" target="_blank" rel="noreferrer">
-                  <div className="rounded-full shadow-lg shadow-gray-800 p-3 mr-2 md:mr-0 cursor-pointer hover:scale-105 ease-in duration-300">
+                  <div className="rounded-full shadow-md shadow-gray-700 p-3 mr-2 md:mr-0 cursor-pointer hover:scale-105 ease-in duration-300">
                     <FaGithub />
                   </div>
                 </a>
                 <Link href="/#contact">
                   <div
                     onClick={() => setNav(!nav)}
-                    className="rounded-full shadow-lg shadow-gray-800 p-3 mr-2 md:mr-0 cursor-pointer hover:scale-105 ease-in duration-300"
+                    className="rounded-full shadow-md shadow-gray-700 p-3 mr-2 md:mr-0 cursor-pointer hover:scale-105 ease-in duration-300"
                   >
                     <AiOutlineMail />
                   </div>
                 </Link>
-                <Link href="/resume">
+                <Link href="/consultation">
                   <div
                     onClick={() => setNav(!nav)}
-                    className="rounded-full shadow-lg shadow-gray-800 p-3 mr-2 md:mr-0 cursor-pointer hover:scale-105 ease-in duration-300"
+                    className="rounded-full shadow-md shadow-gray-700 p-3 mr-2 md:mr-0 cursor-pointer hover:scale-105 ease-in duration-300"
                   >
                     <BsFillPersonLinesFill />
                   </div>
@@ -181,7 +215,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

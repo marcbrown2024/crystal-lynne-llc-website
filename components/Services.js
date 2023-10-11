@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import ServiceCard from "./ServiceCard";
 import { motion, useInView } from "framer-motion";
 
@@ -53,10 +53,10 @@ const Services = () => {
     <div id="services" className="w-full">
       <div className="max-w-[1240px] mx-auto px-2 py-16">
         <div id="projects">
-          <h2 className="text-center text-4xl font-bold text-black mt-4 mb-12">
+          <h2 className="text-center text-4xl font-bold text-[#3c68cd] mt-4 mb-12">
             Our Services
           </h2>
-          <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
+          <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12 p-4">
             {ServicesData.map((service, index) => (
               <motion.li
                 key={index}
