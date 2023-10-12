@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { AiOutlineMail } from "react-icons/ai";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
@@ -8,16 +9,40 @@ import { HiOutlineChevronDoubleUp } from "react-icons/hi";
 import ContactImg from "../public/assets/contactUS.jpeg";
 
 const Contact = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  const variant1 = {
+    initial: { x: -500, opacity: 0 },
+    animate: { x: 0, opacity: 1 },
+  };
+
+  const variant2 = {
+    initial: { x: 500, opacity: 0 },
+    animate: { x: 0, opacity: 1 },
+  };
+
+  const variant3 = {
+    initial: { y: 500, opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+  };
+
   return (
     <div id="contact" className="w-full lg:h-screen">
       <div className="max-w-[1240px] m-auto px-2 py-16 w-full ">
-        <h2 className="py-8 text-2xl text-center md:text-left md:text-5xl font-bold text-[#3c68cd]">
+        <h2 className="titles py-8 text-2xl text-center md:text-left md:text-5xl font-bold text-[#3c68cd]">
           Get In Touch
         </h2>
-        <div className="grid lg:grid-cols-5 gap-8">
+        <div ref={ref} className="grid lg:grid-cols-5 gap-8">
           {/* left */}
-          <div className="contactForm col-span-3 lg:col-span-2 w-full h-full shadow-xl shadow-gray-400 rounded-xl p-4">
-            <div className="lg:p-4 h-full ">
+          <motion.div
+            variants={variant1}
+            initial="initial"
+            animate={isInView ? "animate" : "initial"}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="contactForm col-span-3 lg:col-span-2 w-full h-full shadow-xl shadow-gray-400 rounded-xl p-4"
+          >
+            <div>
               <div>
                 <div className="mb-4">LOGO</div>
                 <Image
@@ -64,10 +89,16 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* right */}
-          <div className="contactForm col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4">
+          <motion.div
+            variants={variant2}
+            initial="initial"
+            animate={isInView ? "animate" : "initial"}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="contactForm col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4"
+          >
             <div className="p-4">
               <form action="" method="POST" encType="multipart/form-data">
                 <div className="flex items-center justify-between gap-4 w-full py-2">
@@ -135,15 +166,21 @@ const Contact = () => {
                 </button>
               </form>
             </div>
-          </div>
+          </motion.div>
         </div>
-        <div className="flex justify-center py-12">
+        <motion.div
+          variants={variant3}
+          initial="initial"
+          animate={isInView ? "animate" : "initial"}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="flex justify-center py-12"
+        >
           <Link href="/#main">
-            <div className="rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300">
+            <div className="contactForm rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300">
               <HiOutlineChevronDoubleUp className="text-[#5651e5]" size={30} />
             </div>
           </Link>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

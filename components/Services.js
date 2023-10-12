@@ -50,10 +50,10 @@ const Services = () => {
   };
 
   return (
-    <div id="services" className="w-full">
+    <div id="services" className="breakpoint w-full border-b-2 border-slate-200">
       <div className="max-w-[1240px] mx-auto px-2 py-16">
         <div id="projects">
-          <h2 className="text-center text-4xl font-bold text-[#3c68cd] mt-4 mb-12">
+          <h2 className="titles text-center text-4xl font-bold text-[#3c68cd] mt-4 mb-12">
             Our Services
           </h2>
           <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12 p-4">

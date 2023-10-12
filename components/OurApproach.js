@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
+import { motion, useInView } from "framer-motion";
 
 const OurApproach = () => {
   const projects = [
@@ -39,37 +40,68 @@ const OurApproach = () => {
         "We foster a long-term relationship with both parties involved. Our commitment doesn't end with implementation; we provide continuous support and improvements.",
     },
   ];
+
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  const variant1 = {
+    initial: { x: -500, opacity: 0 },
+    animate: { x: 0, opacity: 1 },
+  };
+
+  const variant2 = {
+    initial: { y: 500, opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+  };
+
   return (
-    <div id="ourApproach" className="h-screen relative text-center">
-      <div className="relative z-20 max-w-[1240px] m-h-full mx-auto p-2 flex flex-col lg:flex-row justify-center items-center">
-        <h2 className="py-8 text-2xl text-center md:text-5xl font-bold text-[#3c68cd]">
+    <div id="ourApproach" className="breakpoint h-screen relative text-center border-b-2 border-slate-200">
+      <div
+        ref={ref}
+        className="relative z-20 max-w-[1240px] m-h-full mx-auto p-2 flex flex-col lg:flex-row justify-center items-center"
+      >
+        <motion.div
+          variants={variant1}
+          initial="initial"
+          animate={isInView ? "animate" : "initial"}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="titles py-8 text-2xl text-center md:text-5xl font-bold text-[#3c68cd]"
+        >
           Our Approach
-        </h2>
-        <div className="w-full h-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-10">
+        </motion.div>
+        <motion.div
+          variants={variant2}
+          initial="initial"
+          animate={isInView ? "animate" : "initial"}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="w-full h-full flex overflow-x-scroll z-10 custom-scrollbar"
+        >
           {projects.map((project) => (
             <div
               key={project.id}
-              className="w-full h-full flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44"
+              className="w-full h-full flex-shrink-0 flex flex-col space-y-5 items-center justify-center p-20 md:p-44"
             >
               <Image
                 src={project.image}
                 alt={project.title}
                 width={600}
                 height={400}
+                priority
               />
               <div>
                 <h4 className="text-4xl font-semibold text-center mb-4">
                   {project.title}
                 </h4>
-                <p className="text-lg text-center md:text-left">
+                <p className="text-lg text-center md:text-left mb-4">
                   {project.description}
                 </p>
               </div>
+              <div>{project.id} of 5</div>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
-      <div className="hidden lg:flex w-full absolute z-0 top-[10%] bg-[#d0cdcd38] left-0 h-[700px] skew-y-6"></div>
+      <div className="skewdiv w-full absolute z-0 top-[10%] bg-[#d0cdcd38] left-0 h-[600px] lg:h-[700px] skew-y-6"></div>
     </div>
   );
 };

@@ -8,8 +8,8 @@ const ServiceCard = ({ imgUrl, title, description }) => {
         style={{ background: `url(${imgUrl})`, backgroundSize: "cover" }}
       >
       </div>
-      <div className=" h-[22rem] text-white rounded-b-xl bg-[#4f4f4f] py-6 px-4">
-        <h5 className="text-xl font-semibold mb-8">{title}</h5>
+      <div className=" h-[20rem] lg:h-[18rem] text-white rounded-b-xl bg-[#4f4f4f] py-6 px-4">
+        <h5 className="text-xl font-semibold mb-8 text-center">{title}</h5>
         <p className="text-[#ADB7BE] leading-6">{description}</p>
       </div>
     </div>

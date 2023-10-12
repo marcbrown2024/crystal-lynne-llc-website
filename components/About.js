@@ -1,19 +1,42 @@
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion, useInView } from "framer-motion";
 import AboutImg from "../public/assets/Conference-room.jpeg";
 import { HiChatBubbleLeftRight } from "react-icons/hi2";
 
 const About = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  const variant1 = {
+    initial: { x: -500, opacity: 0 },
+    animate: { x: 0, opacity: 1 },
+  };
+
+  const variant2 = {
+    initial: { x: 500, opacity: 0 },
+    animate: { x: 0, opacity: 1 },
+  };
+
   return (
-    <div id="about" className="w-full md:h-screen p-2 flex items-center py-16">
-      <div className="max-w-[1240px] h-full m-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="flex flex-col items-center justify-center p-4 ">
+    <div id="about" className="breakpoint w-full md:h-screen p-2 flex items-center py-16 border-b-2 border-slate-200">
+      <div ref={ref}  className="max-w-[1240px] h-full m-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+        <motion.div
+          variants={variant1}
+          initial="initial"
+          animate={isInView ? "animate" : "initial"}
+          transition={{ duration: 1, delay: 0.5}}
+          className="flex flex-col items-center justify-center p-4 "
+        >
           <div className="text-4xl font-bold flex flex-col text-center py-8 md:py-8 gap-0 md:gap-4">
             Why Choose
-            <span className="text-4xl text-[#3c68cd] font-bold">
+            <span className="titles text-4xl text-[#3c68cd] font-bold">
               CrystaLynne LLC?
             </span>
+          </div>
+          <div className="aboutpic w-full h-auto m-auto shadow-xl shadow-gray-400 rounded-xl flex items-center justify-center p-[4px] hover:scale-105 ease-in duration-300">
+            <Image src={AboutImg} className="rounded-xl" alt="/" priority />
           </div>
           <p className="py-2 leading-8">
             At CrystaLynne LLC, we specialize in driving business growth and
@@ -24,11 +47,14 @@ const About = () => {
             technology partners, we provide innovative solutions that cater to
             your unique business needs.
           </p>
-          <div className="aboutpic w-full h-auto m-auto shadow-xl shadow-gray-400 rounded-xl flex items-center justify-center p-[4px] hover:scale-105 ease-in duration-300">
-            <Image src={AboutImg} className="rounded-xl" alt="/" priority />
-          </div>
-        </div>
-        <div className="w-full h-auto p-8 -mt-12 md:mt-8">
+        </motion.div>
+        <motion.div
+          variants={variant2}
+          initial="initial"
+          animate={isInView ? "animate" : "initial"}
+          transition={{ duration: 1, delay: 1}}
+          className="w-full h-auto p-8 -mt-12 md:mt-8"
+        >
           <div>
             <div className="my-8 flex flex-col gap-8 pb-4">
               <h1 className="text-lg md:text-xl font-bold ">Expertise</h1>
@@ -72,7 +98,7 @@ const About = () => {
               </Link>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

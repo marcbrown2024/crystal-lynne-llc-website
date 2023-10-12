@@ -4,6 +4,8 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  overflow: scroll;
 }
 
 body {
@@ -17,7 +19,7 @@ body {
   color: #fff;
 }
 
-[data-theme="dark"] #navbar {
+[data-theme="dark"] .navbar {
   background-color: #1f1f1f;
   color: #fff;
 }
@@ -74,7 +76,7 @@ body {
   border: 2px solid #fff;
 }
 
-[data-theme="dark"] .socials,
+[data-theme="dark"] .socials, .menuClose,
 .aboutpic,
 .contactForm {
   box-shadow: 0 5px 10px rgba(113, 113, 113, 0.2), 0 3px 3px rgba(0, 0, 0, 0.1);
@@ -82,4 +84,33 @@ body {
 
 [data-theme="dark"] .contactLabels {
   border-color: rgb(71 85 105);
+}
+
+[data-theme="dark"] .titles {
+  color: #41d9b0;
+}
+
+
+[data-theme="dark"] .skewdiv {
+  background-color: #00000038;
+}
+
+.custom-scrollbar {
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+
+[data-theme="dark"] .breakpoint {
+  border-bottom: 2px solid #3f3f3f;
 }
