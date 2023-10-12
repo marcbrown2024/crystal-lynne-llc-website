@@ -92,7 +92,11 @@ const Navbar = () => {
             )}
 
             <li>
-              <Link className="liItems relative z-50" href="/consultation">
+              <Link
+                className="liItems relative z-50"
+                href="https://calendly.com/marcbrown2024/crystallynne-llc-consultation"
+                target="_blank"
+              >
                 Book A Consultation
               </Link>
             </li>
@@ -181,7 +185,10 @@ const Navbar = () => {
                   Our Approach
                 </li>
               </Link>
-              <Link href="/consultation">
+              <Link
+                href="https://calendly.com/marcbrown2024/crystallynne-llc-consultation"
+                target="_blank"
+              >
                 <li onClick={() => setNav(false)} className="py-4 text-sm">
                   Book A Consultation
                 </li>

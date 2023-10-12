@@ -43,7 +43,10 @@ const Main = () => {
                 <AiOutlineMail />
               </div>
             </Link>
-            <Link href="/consultation">
+            <Link
+              href="https://calendly.com/marcbrown2024/crystallynne-llc-consultation"
+              target="_blank"
+            >
               <div className="socials text-xl md:text-2xl rounded-full shadow-lg shadow-gray-400 p-4 md:p-6 cursor-pointer hover:scale-110 ease-in duration-300">
                 <BsFillPersonLinesFill />
               </div>

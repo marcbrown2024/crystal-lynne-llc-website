@@ -88,8 +88,9 @@ const About = () => {
                 to success
               </p>
               <Link
-                href="/consultation"
+                href="https://calendly.com/marcbrown2024/crystallynne-llc-consultation"
                 className="flex items-center justify-left gap-4 text-xl"
+                target="_blank"
               >
                 <HiChatBubbleLeftRight />
                 <p className="py-2 text-[#3c68cd] cursor-pointer animate-pulse">
