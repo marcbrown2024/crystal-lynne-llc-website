@@ -185,7 +185,7 @@ const Navbar = () => {
                   Our Approach
                 </li>
               </Link>
-              <Link href="/#consultation" target="_blank">
+              <Link href="/#consultation">
                 <li onClick={() => setNav(false)} className="py-4 text-sm">
                   Book A Consultation
                 </li>

@@ -89,7 +89,7 @@ const Consultation = () => {
           <Link
             href="https://calendly.com/marcbrown2024/crystallynne-llc-consultation"
             target="_blank"
-            className="lg:absolute bottom-12 left-[28rem] mt-6 inline-block bg-blue-600 text-white py-3 px-4 lg:px-6 rounded-full text-sm lg:text-lg font-semibold hover:bg-blue-800"
+            className="mt-6 inline-block bg-blue-600 text-white py-3 px-4 lg:px-6 rounded-full text-sm lg:text-lg font-semibold hover:bg-blue-800"
           >
             Schedule Consultation
           </Link>

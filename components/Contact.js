@@ -27,8 +27,8 @@ const Contact = () => {
   };
 
   return (
-    <div id="contact" className="relative w-screen h-full">
-      <div className="max-w-[1240px] h-full m-auto px-2 lg:py-12 w-full ">
+    <div id="contact" className="relative w-screen h-auto">
+      <div className="max-w-[1240px] h-auto m-auto px-2 pt-12 pb-4">
         <h2 className="titles py-8 mt-8 text-2xl text-center md:text-left md:text-5xl font-bold text-[#3c68cd]">
           Get In Touch
         </h2>
@@ -173,7 +173,7 @@ const Contact = () => {
           initial="initial"
           animate={isInView ? "animate" : "initial"}
           transition={{ duration: 1, delay: 0.5 }}
-          className="flex justify-center py-12"
+          className="flex justify-center pt-4"
         >
           <Link href="/#main">
             <div className="darkshadow rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300">
@@ -182,8 +182,8 @@ const Contact = () => {
           </Link>
         </motion.div>
       </div>
-      <div className="hidden xl:flex skewdiv w-full absolute -z-10 top-[10%] bg-[#bebbbb38] left-0 h-[900px] "></div>
-      <div className="hidden xl:flex skewdiv w-full absolute -z-20 top-[5%] bg-[#bebbbb38] left-0 h-[1000px] "></div>
+      <div className="hidden xl:flex skewdiv w-full absolute -z-10 top-[15%] bg-[#bebbbb38] left-0 h-[750px] lg:h-[850px] skew-y-6"></div>
+      <div className="hidden xl:flex skewdiv w-full absolute -z-20 top-[10%] bg-[#bebbbb38] left-0 h-[850px] lg:h-[950px] skew-y-6"></div>
     </div>
   );
 };
