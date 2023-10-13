@@ -9,7 +9,7 @@ const ServicesData = [
     title: "Custom Software Solution",
     description:
       "Our team of experts specializes in creating custom software that aligns perfectly with your business objectives. From streamlining operations to enhancing customer experiences, we design software that works for you.",
-    image: "/assets/Custom.png",
+    image: "/assets/custom.png",
   },
   {
     id: 2,

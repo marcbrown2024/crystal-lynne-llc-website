@@ -1,5 +1,3 @@
-"use client";
-7
 import React, { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { RiMoonLine, RiSunLine } from "react-icons/ri";
@@ -15,7 +13,23 @@ const ThemeSwitcher = () => {
     // Check if the user's system prefers dark mode
     const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
     setEnabled(prefersDarkMode);
+
+    // Retrieve the user's preference from localStorage, if available
+    const userPreference = localStorage.getItem("themePreference");
+    if (userPreference !== null) {
+      setEnabled(userPreference === "dark");
+      setTheme(userPreference);
+    }
   }, []);
+
+  const handleSwitchChange = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setEnabled(newTheme === "dark");
+    setTheme(newTheme);
+
+    // Store the user's preference in localStorage
+    localStorage.setItem("themePreference", newTheme);
+  };
 
   if (!mounted) {
     return null;
@@ -25,11 +39,10 @@ const ThemeSwitcher = () => {
     <div>
       <Switch
         checked={enabled}
-        onChange={setEnabled}
+        onChange={handleSwitchChange}
         className={`${
           enabled ? "bg-[#e7e5e5]" : "bg-[#373636]"
         } relative inline-flex h-7 w-16 items-center rounded-full`}
-        onClick={() => setTheme(theme === "light" ? "dark" : "light")}
       >
         <span
           className={`${
