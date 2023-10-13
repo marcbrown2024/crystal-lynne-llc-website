@@ -5,7 +5,6 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
-  overflow: scroll;
 }
 
 body {
@@ -76,9 +75,7 @@ body {
   border: 2px solid #fff;
 }
 
-[data-theme="dark"] .socials, .menuClose,
-.aboutpic,
-.contactForm {
+[data-theme="dark"] .darkshadow {
   box-shadow: 0 5px 10px rgba(113, 113, 113, 0.2), 0 3px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -90,26 +87,13 @@ body {
   color: #41d9b0;
 }
 
+[data-theme="dark"] .btn:hover {
+  color: #41d9b0;
+}
 
 [data-theme="dark"] .skewdiv {
   background-color: #00000038;
 }
-
-.custom-scrollbar {
-  overflow: auto;
-  scrollbar-width: thin;
-  scrollbar-color: transparent transparent;
-  -webkit-overflow-scrolling: touch;
-}
-
-.custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: transparent;
-}
-
 
 [data-theme="dark"] .breakpoint {
   border-bottom: 2px solid #3f3f3f;

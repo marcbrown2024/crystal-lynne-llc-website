@@ -2,9 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { AiOutlineMail } from "react-icons/ai";
 import { BsFillPersonLinesFill } from "react-icons/bs";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { HiOutlineChevronDoubleUp } from "react-icons/hi";
 import ContactImg from "../public/assets/contactUS.jpeg";
 
@@ -28,9 +27,9 @@ const Contact = () => {
   };
 
   return (
-    <div id="contact" className="w-full lg:h-screen">
-      <div className="max-w-[1240px] m-auto px-2 py-16 w-full ">
-        <h2 className="titles py-8 text-2xl text-center md:text-left md:text-5xl font-bold text-[#3c68cd]">
+    <div id="contact" className="relative w-screen h-screen">
+      <div className="max-w-[1240px] h-screen m-auto px-2 py-16 w-full ">
+        <h2 className="titles py-8 mt-8 text-2xl text-center md:text-left md:text-5xl font-bold text-[#3c68cd]">
           Get In Touch
         </h2>
         <div ref={ref} className="grid lg:grid-cols-5 gap-8">
@@ -40,7 +39,7 @@ const Contact = () => {
             initial="initial"
             animate={isInView ? "animate" : "initial"}
             transition={{ duration: 1, delay: 0.5 }}
-            className="contactForm col-span-3 lg:col-span-2 w-full h-full shadow-xl shadow-gray-400 rounded-xl p-4"
+            className="darkshadow col-span-3 lg:col-span-2 w-full h-full shadow-xl shadow-gray-400 rounded-xl p-4"
           >
             <div>
               <div>
@@ -64,7 +63,7 @@ const Contact = () => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <div className="socials rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
+                    <div className="darkshadow rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
                       <FaLinkedinIn />
                     </div>
                   </a>
@@ -73,16 +72,17 @@ const Contact = () => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <div className="socials rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
+                    <div className="darkshadow rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
                       <FaGithub />
                     </div>
                   </a>
-
-                  <div className="socials rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
-                    <AiOutlineMail />
-                  </div>
+                  <a href="" target="_blank" rel="noreferrer">
+                    <div className="darkshadow text-xl md:text-2xl rounded-full shadow-lg shadow-gray-400 p-4 md:p-6 cursor-pointer hover:scale-110 ease-in duration-300">
+                      <FaTwitter />
+                    </div>
+                  </a>
                   <Link href="/resume">
-                    <div className="socials rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
+                    <div className="darkshadow rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
                       <BsFillPersonLinesFill />
                     </div>
                   </Link>
@@ -97,7 +97,7 @@ const Contact = () => {
             initial="initial"
             animate={isInView ? "animate" : "initial"}
             transition={{ duration: 1, delay: 0.5 }}
-            className="contactForm col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4"
+            className="darkshadow col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4"
           >
             <div className="p-4">
               <form action="" method="POST" encType="multipart/form-data">
@@ -161,7 +161,7 @@ const Contact = () => {
                     autoComplete="off"
                   ></textarea>
                 </div>
-                <button className="contactForm w-full p-4 text-gray-100 mt-4 shadow-xl shadow-gray-400 rounded-xl uppercase bg-gradient-to-r from-[#5651e5] to-[#709dff] hover:scale-95">
+                <button className="darkshadow w-full p-4 text-gray-100 mt-4 shadow-xl shadow-gray-400 rounded-xl uppercase bg-gradient-to-r from-[#5651e5] to-[#709dff] hover:scale-95">
                   Send Message
                 </button>
               </form>
@@ -176,12 +176,14 @@ const Contact = () => {
           className="flex justify-center py-12"
         >
           <Link href="/#main">
-            <div className="contactForm rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300">
+            <div className="darkshadow rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300">
               <HiOutlineChevronDoubleUp className="text-[#5651e5]" size={30} />
             </div>
           </Link>
         </motion.div>
       </div>
+      <div className="hidden xl:flex skewdiv w-full absolute -z-10 top-[15%] bg-[#bebbbb38] left-0 h-[750px] lg:h-[850px] skew-y-6"></div>
+      <div className="hidden xl:flex skewdiv w-full absolute -z-20 top-[10%] bg-[#bebbbb38] left-0 h-[850px] lg:h-[950px] skew-y-6"></div>
     </div>
   );
 };

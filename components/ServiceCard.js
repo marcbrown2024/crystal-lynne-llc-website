@@ -1,16 +1,21 @@
 import React from "react";
+import Image from "next/image";
 
 const ServiceCard = ({ imgUrl, title, description }) => {
   return (
-    <div className="hover:scale-105 ease-in duration-300">
-      <div
-        className="h-72 rounded-t-xl relative group bg-no-repeat"
-        style={{ background: `url(${imgUrl})`, backgroundSize: "cover" }}
-      >
+    <div className="hover:scale-90 ease-in duration-300 rounded-xl p-8">
+      <div className="relative w-[20rem] h-[14rem]">
+        <Image
+          className="rounded-t-xl"
+          src={imgUrl}
+          alt={title}
+          fill={true}
+          priority
+        ></Image>
       </div>
-      <div className=" h-[20rem] lg:h-[18rem] text-white rounded-b-xl bg-[#4f4f4f] py-6 px-4">
-        <h5 className="text-xl font-semibold mb-8 text-center">{title}</h5>
-        <p className="text-[#ADB7BE] leading-6">{description}</p>
+      <div className="w-[20rem] h-[14rem] flex flex-col items-center justify-center text-white rounded-b-xl bg-[#4f4f4f] p-4 gap-y-4">
+        <div className="text-lg font-semibold text-center">{title}</div>
+        <div className="leading-6 text-[13px]">{description}</div>
       </div>
     </div>
   );

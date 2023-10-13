@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import ThemeSwitcher from "./ThemeSwitcher";
 import { motion } from "framer-motion";
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from "react-icons/ai";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 
 // import NavLogo from '../public/assets/navLogo.png'
@@ -66,49 +66,31 @@ const Navbar = () => {
                 Home
               </Link>
             </li>
-
-            {pathname === "/" && (
-              <li>
-                <Link className="liItems relative z-50" href="/#about">
-                  About
-                </Link>
-              </li>
-            )}
-
-            {pathname === "/" && (
-              <li>
-                <Link className="liItems relative z-50" href="/#services">
-                  Services
-                </Link>
-              </li>
-            )}
-
-            {pathname === "/" && (
-              <li>
-                <Link className="liItems relative z-50" href="/#ourApproach">
-                  Our Approach
-                </Link>
-              </li>
-            )}
-
             <li>
-              <Link
-                className="liItems relative z-50"
-                href="https://calendly.com/marcbrown2024/crystallynne-llc-consultation"
-                target="_blank"
-              >
+              <Link className="liItems relative z-50" href="/#about">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link className="liItems relative z-50" href="/#services">
+                Services
+              </Link>
+            </li>
+            <li>
+              <Link className="liItems relative z-50" href="/#ourApproach">
+                Our Approach
+              </Link>
+            </li>
+            <li>
+              <Link className="liItems relative z-50" href="/#consultation">
                 Book A Consultation
               </Link>
             </li>
-
-            {pathname === "/" && (
-              <li>
-                <Link className="liItems relative z-50" href="/#contact">
-                  Contact
-                </Link>
-              </li>
-            )}
-
+            <li>
+              <Link className="liItems relative z-50" href="/#contact">
+                Contact
+              </Link>
+            </li>
             <li className="flex items-center justify-center">
               <ThemeSwitcher />
             </li>
@@ -185,10 +167,7 @@ const Navbar = () => {
                   Our Approach
                 </li>
               </Link>
-              <Link
-                href="https://calendly.com/marcbrown2024/crystallynne-llc-consultation"
-                target="_blank"
-              >
+              <Link href="/#consultation" target="_blank">
                 <li onClick={() => setNav(false)} className="py-4 text-sm">
                   Book A Consultation
                 </li>
@@ -203,7 +182,7 @@ const Navbar = () => {
               <p className="uppercase tracking-widest text-[#427ed1] text-center">
                 Let&#39;s Connect
               </p>
-              <div className="flex items-center justify-center mt-2 w-full h-full sm:w-[80%] ">
+              <div className="flex items-center justify-center mt-2 w-full h-full sm:w-[80%] gap-4 ">
                 <a href="" target="_blank" rel="noreferrer">
                   <div className="rounded-full shadow-md shadow-gray-700 p-3 mr-2 md:mr-0 cursor-pointer hover:scale-105 ease-in duration-300">
                     <FaLinkedinIn />
@@ -212,6 +191,11 @@ const Navbar = () => {
                 <a href="" target="_blank" rel="noreferrer">
                   <div className="rounded-full shadow-md shadow-gray-700 p-3 mr-2 md:mr-0 cursor-pointer hover:scale-105 ease-in duration-300">
                     <FaGithub />
+                  </div>
+                </a>
+                <a href="" target="_blank" rel="noreferrer">
+                  <div className="darkshadow text-xl md:text-2xl rounded-full shadow-lg shadow-gray-400 p-4 md:p-6 cursor-pointer hover:scale-110 ease-in duration-300">
+                    <FaTwitter />
                   </div>
                 </a>
                 <Link href="/#contact">

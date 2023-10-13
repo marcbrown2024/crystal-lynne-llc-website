@@ -1,6 +1,7 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
+import { HiArrowLeftCircle, HiArrowRightCircle } from "react-icons/hi2";
 
 const OurApproach = () => {
   const projects = [
@@ -44,64 +45,101 @@ const OurApproach = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
+  const [currentProject, setCurrentProject] = useState(0);
+
+  const handleNextProject = () => {
+    setCurrentProject((prevProject) =>
+      prevProject < projects.length - 1 ? prevProject + 1 : 0
+    );
+  };
+
+  const handlePrevProject = () => {
+    setCurrentProject((prevProject) =>
+      prevProject > 0 ? prevProject - 1 : projects.length - 1
+    );
+  };
+
   const variant1 = {
     initial: { x: -500, opacity: 0 },
     animate: { x: 0, opacity: 1 },
   };
 
   const variant2 = {
-    initial: { y: 500, opacity: 0 },
-    animate: { y: 0, opacity: 1 },
+    initial: { x: 500, opacity: 0 },
+    animate: { x: 0, opacity: 1 },
   };
 
   return (
-    <div id="ourApproach" className="breakpoint h-screen relative text-center border-b-2 border-slate-200">
+    <div
+      id="ourApproach"
+      className="breakpoint relative w-screen h-screen text-center border-b-2 border-slate-200"
+    >
       <div
         ref={ref}
-        className="relative z-20 max-w-[1240px] m-h-full mx-auto p-2 flex flex-col lg:flex-row justify-center items-center"
+        className="relative max-w-[1240px] mx-auto flex flex-col lg:flex-row items-center justify-center lg:gap-x-8"
       >
-        <motion.div
-          variants={variant1}
-          initial="initial"
-          animate={isInView ? "animate" : "initial"}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="titles py-8 text-2xl text-center md:text-5xl font-bold text-[#3c68cd]"
-        >
-          Our Approach
-        </motion.div>
+        <div className="w-2/6 h-screen flex flex-col items-center justify-center">
+          <motion.div
+            variants={variant1}
+            initial="initial"
+            animate={isInView ? "animate" : "initial"}
+            transition={{ duration: 1, delay: 0.5 }}
+            className=""
+          >
+            <div className="titles text-2xl text-center md:text-6xl font-bold text-[#3c68cd] mb-12">
+              Our Approach
+            </div>
+
+            <div className="flex items-center justify-between gap-8">
+              <div className="btn hover:text-[#3c68cd] text-[50px]" onClick={handlePrevProject}>
+                <HiArrowLeftCircle/>
+              </div>
+              {currentProject + 1} of {projects.length}
+              <div className="btn hover:text-[#3c68cd] text-[50px]" onClick={handleNextProject}>
+                <HiArrowRightCircle/>
+              </div>
+            </div>
+          </motion.div>
+        </div>
         <motion.div
           variants={variant2}
           initial="initial"
           animate={isInView ? "animate" : "initial"}
           transition={{ duration: 1, delay: 0.5 }}
-          className="w-full h-full flex overflow-x-scroll z-10 custom-scrollbar"
+          className="w-full h-full flex flex-col"
         >
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              className="w-full h-full flex-shrink-0 flex flex-col space-y-5 items-center justify-center p-20 md:p-44"
+          {projects.map((project, index) => (
+            <motion.div
+              variants={variant2}
+              initial="initial"
+              animate={index === currentProject ? "animate" : "initial"}
+              transition={{ duration: 1, delay: 0.5 }}
+              exit="exit"
+              className={`w-full h-full flex-shrink-0 flex flex-col space-y-5 items-center justify-center p-20 md:p-44 ${
+                index !== currentProject ? "hidden" : ""
+              }`}
             >
               <Image
                 src={project.image}
                 alt={project.title}
-                width={600}
-                height={400}
+                width={500}
+                height={300}
                 priority
               />
               <div>
-                <h4 className="text-4xl font-semibold text-center mb-4">
+                <h4 className="text-3xl font-semibold text-center mb-8">
                   {project.title}
                 </h4>
-                <p className="text-lg text-center md:text-left mb-4">
+                <p className="text-lg text-center md:text-left px-4">
                   {project.description}
                 </p>
               </div>
-              <div>{project.id} of 5</div>
-            </div>
+            </motion.div>
           ))}
         </motion.div>
       </div>
-      <div className="skewdiv w-full absolute z-0 top-[10%] bg-[#d0cdcd38] left-0 h-[600px] lg:h-[700px] skew-y-6"></div>
+      <div className="hidden xl:flex skewdiv w-full absolute -z-10 top-[13%] bg-[#d0cdcd38] left-0 h-[600px] lg:h-[700px] skew-y-3"></div>
+      <div className="hidden xl:flex skewdiv w-full absolute -z-20 top-[10%] bg-[#d0cdcd38] left-0 h-[660px] lg:h-[760px] skew-y-3"></div>
     </div>
   );
 };
