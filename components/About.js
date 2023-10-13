@@ -22,17 +22,17 @@ const About = () => {
   return (
     <div
       id="about"
-      className="breakpoint relative w-screen h-screen flex items-center border-b-2 border-slate-200"
+      className="breakpoint relative w-screen h-auto flex items-center border-b-2 border-slate-200"
     >
       <div
         ref={ref}
-        className="max-w-[1240px] h-screen m-auto grid grid-cols-1 md:grid-cols-2"
+        className="max-w-[1240px] lg:h-screen m-auto grid grid-cols-1 md:grid-cols-2 items-center"
       >
         <motion.div
           variants={variant1}
           initial="initial"
           animate={isInView ? "animate" : "initial"}
-          transition={{ duration: 1, delay: 0.5 }}
+          transition={{ duration: 1, delay: 1 }}
           className="flex flex-col items-center justify-center p-4"
         >
           <div className="text-4xl font-bold flex flex-col text-center gap-0 md:gap-2 mb-8">
@@ -51,7 +51,7 @@ const About = () => {
               priority
             />
           </div>
-          <p className="leading-8 p-12">
+          <p className="leading-8 p-4 lg:p-12">
             CrystaLynne LLC specializes in custom software solutions to boost
             business growth and efficiency for enterprises of all sizes. We
             optimize operations, automate processes, and help you achieve your
@@ -59,15 +59,17 @@ const About = () => {
             partners.
           </p>
         </motion.div>
+        <div className="flex md:hidden items-center justify-center text-xs">
+        - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</div>
         <motion.div
           variants={variant2}
           initial="initial"
           animate={isInView ? "animate" : "initial"}
           transition={{ duration: 1, delay: 1 }}
-          className="h-auto p-8 lg:mt-24"
+          className="h-auto p-8 "
         >
           <div>
-            <div className="my-8 flex flex-col gap-8">
+            <div className="mb-8 flex flex-col gap-8">
               <h1 className="text-lg md:text-xl font-bold ">Expertise</h1>
               <p className="text-sm md:text-lg">
                 Our team of seasoned professionals brings a wealth of experience

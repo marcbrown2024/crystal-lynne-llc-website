@@ -72,25 +72,24 @@ const OurApproach = () => {
   return (
     <div
       id="ourApproach"
-      className="breakpoint relative w-screen h-screen text-center border-b-2 border-slate-200"
+      className="breakpoint relative w-screen h-full text-center border-b-2 border-slate-200"
     >
       <div
         ref={ref}
-        className="relative max-w-[1240px] mx-auto flex flex-col lg:flex-row items-center justify-center lg:gap-x-8"
+        className="relative max-w-[1240px] h-full mx-auto flex flex-col lg:flex-row items-center justify-center lg:gap-x-8"
       >
-        <div className="w-2/6 h-screen flex flex-col items-center justify-center">
+        <div className="w-2/6 h-auto flex flex-col items-center justify-center">
           <motion.div
             variants={variant1}
             initial="initial"
             animate={isInView ? "animate" : "initial"}
             transition={{ duration: 1, delay: 0.5 }}
-            className=""
           >
-            <div className="titles text-2xl text-center md:text-6xl font-bold text-[#3c68cd] mb-12">
+            <div className="titles text-2xl text-center md:text-6xl font-bold text-[#3c68cd] my-12">
               Our Approach
             </div>
 
-            <div className="flex items-center justify-between gap-8">
+            <div className="sm:w-[250px] md:w-full flex items-center justify-between gap-8">
               <div className="btn hover:text-[#3c68cd] text-[50px]" onClick={handlePrevProject}>
                 <HiArrowLeftCircle/>
               </div>

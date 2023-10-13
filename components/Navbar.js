@@ -32,6 +32,23 @@ const Navbar = () => {
     window.addEventListener("scroll", handleShadow);
   }, []);
 
+  // Event listener to close the navigation when clicking anywhere on the screen
+  useEffect(() => {
+    const closeNavOnOutsideClick = (e) => {
+      if (nav && e.target !== document.getElementById("navToggle")) {
+        setNav(false);
+      }
+    };
+
+    // Add the event listener when the component mounts
+    document.addEventListener("click", closeNavOnOutsideClick);
+
+    // Remove the event listener when the component unmounts
+    return () => {
+      document.removeEventListener("click", closeNavOnOutsideClick);
+    };
+  }, [nav]);
+
   return (
     <header
       className={
@@ -97,7 +114,7 @@ const Navbar = () => {
           </ul>
 
           {/* Hamburger Icon */}
-          <div onClick={handleNav} className="lg:hidden mr-12">
+          <div onClick={handleNav} className="relative z-50 lg:hidden">
             <AiOutlineMenu size={25} />
           </div>
         </div>
@@ -132,8 +149,9 @@ const Navbar = () => {
                   <ThemeSwitcher />
                 </div>
                 <div
+                  id="navToggle"
                   onClick={handleNav}
-                  className="menuClose rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer"
+                  className="darkshadow rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer"
                 >
                   <AiOutlineClose />
                 </div>
@@ -182,34 +200,26 @@ const Navbar = () => {
               <p className="uppercase tracking-widest text-[#427ed1] text-center">
                 Let&#39;s Connect
               </p>
-              <div className="flex items-center justify-center mt-2 w-full h-full sm:w-[80%] gap-4 ">
+              <div className="flex items-center justify-center mt-4 w-full h-full sm:w-[80%] gap-2 lg:gap-4 ">
                 <a href="" target="_blank" rel="noreferrer">
-                  <div className="rounded-full shadow-md shadow-gray-700 p-3 mr-2 md:mr-0 cursor-pointer hover:scale-105 ease-in duration-300">
+                  <div className="darkshadow rounded-full shadow-md shadow-gray-700 p-3 mr-2 md:mr-0 cursor-pointer hover:scale-105 ease-in duration-300">
                     <FaLinkedinIn />
                   </div>
                 </a>
                 <a href="" target="_blank" rel="noreferrer">
-                  <div className="rounded-full shadow-md shadow-gray-700 p-3 mr-2 md:mr-0 cursor-pointer hover:scale-105 ease-in duration-300">
+                  <div className="darkshadow rounded-full shadow-md shadow-gray-700 p-3 mr-2 md:mr-0 cursor-pointer hover:scale-105 ease-in duration-300">
                     <FaGithub />
                   </div>
                 </a>
                 <a href="" target="_blank" rel="noreferrer">
-                  <div className="darkshadow text-xl md:text-2xl rounded-full shadow-lg shadow-gray-400 p-4 md:p-6 cursor-pointer hover:scale-110 ease-in duration-300">
+                  <div className="darkshadow rounded-full shadow-md shadow-gray-700 p-3 mr-2 md:mr-0 cursor-pointer hover:scale-105 ease-in duration-300">
                     <FaTwitter />
                   </div>
                 </a>
-                <Link href="/#contact">
-                  <div
-                    onClick={() => setNav(!nav)}
-                    className="rounded-full shadow-md shadow-gray-700 p-3 mr-2 md:mr-0 cursor-pointer hover:scale-105 ease-in duration-300"
-                  >
-                    <AiOutlineMail />
-                  </div>
-                </Link>
                 <Link href="/consultation">
                   <div
                     onClick={() => setNav(!nav)}
-                    className="rounded-full shadow-md shadow-gray-700 p-3 mr-2 md:mr-0 cursor-pointer hover:scale-105 ease-in duration-300"
+                    className="darkshadow rounded-full shadow-md shadow-gray-700 p-3 mr-2 md:mr-0 cursor-pointer hover:scale-105 ease-in duration-300"
                   >
                     <BsFillPersonLinesFill />
                   </div>

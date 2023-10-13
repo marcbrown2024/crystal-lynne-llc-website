@@ -27,8 +27,8 @@ const Contact = () => {
   };
 
   return (
-    <div id="contact" className="relative w-screen h-screen">
-      <div className="max-w-[1240px] h-screen m-auto px-2 py-16 w-full ">
+    <div id="contact" className="relative w-screen h-full">
+      <div className="max-w-[1240px] h-full m-auto px-2 lg:py-12 w-full ">
         <h2 className="titles py-8 mt-8 text-2xl text-center md:text-left md:text-5xl font-bold text-[#3c68cd]">
           Get In Touch
         </h2>
@@ -182,8 +182,8 @@ const Contact = () => {
           </Link>
         </motion.div>
       </div>
-      <div className="hidden xl:flex skewdiv w-full absolute -z-10 top-[15%] bg-[#bebbbb38] left-0 h-[750px] lg:h-[850px] skew-y-6"></div>
-      <div className="hidden xl:flex skewdiv w-full absolute -z-20 top-[10%] bg-[#bebbbb38] left-0 h-[850px] lg:h-[950px] skew-y-6"></div>
+      <div className="hidden xl:flex skewdiv w-full absolute -z-10 top-[10%] bg-[#bebbbb38] left-0 h-[900px] "></div>
+      <div className="hidden xl:flex skewdiv w-full absolute -z-20 top-[5%] bg-[#bebbbb38] left-0 h-[1000px] "></div>
     </div>
   );
 };

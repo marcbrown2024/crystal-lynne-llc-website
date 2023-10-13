@@ -1,8 +1,6 @@
 import "../styles/globals.css";
 import React from "react";
 import Providers from "./providers";
-import ThemeSwitcher from "../components/ThemeSwitcher";
-import Navbar from "../components/Navbar";
 
 export const metadata = {
   title: "CrystalLynne LLC",
@@ -26,8 +24,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${sora.variable} font-sora`}>
         <Providers>
-          <Navbar />
-          {children}
+            {children}
         </Providers>
       </body>
     </html>

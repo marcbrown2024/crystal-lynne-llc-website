@@ -27,13 +27,13 @@ const ThemeSwitcher = () => {
         checked={enabled}
         onChange={setEnabled}
         className={`${
-          !enabled ? "bg-[#e7e5e5]" : "bg-[#373636]"
+          enabled ? "bg-[#e7e5e5]" : "bg-[#373636]"
         } relative inline-flex h-7 w-16 items-center rounded-full`}
         onClick={() => setTheme(theme === "light" ? "dark" : "light")}
       >
         <span
           className={`${
-            !enabled ? "translate-x-9" : "translate-x-1"
+            enabled ? "translate-x-9" : "translate-x-1"
           } flex items-center justify-center h-6 w-6 transform rounded-full transition bg-[#aeaeae] hover:text-[#3a9194]`}
         >
           <span className="flex items-center justify-center">

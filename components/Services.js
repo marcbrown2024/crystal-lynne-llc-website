@@ -52,11 +52,11 @@ const Services = () => {
   return (
     <div
       id="services"
-      className="breakpoint relative w-screen h-auto flex items-center border-b-2 border-slate-200"
+      className="breakpoint relative w-screen h-auto flex items-center justify-center border-b-2 border-slate-200"
     >
-      <div className="max-w-[1240px] h-auto mx-auto px-2 py-16">
-        <div id="projects">
-          <h2 className="titles text-center text-4xl font-bold text-[#3c68cd] mt-4 mb-12">
+      <div className="max-w-[1240px] h-auto py-16">
+        <div>
+          <h2 className="titles text-center text-4xl font-bold text-[#3c68cd]">
             Our Services
           </h2>
           <ul ref={ref} className="grid md:grid-cols-3 p-4">
@@ -84,8 +84,8 @@ const Services = () => {
           </ul>
         </div>
       </div>
-      <div className="hidden xl:flex skewdiv w-full absolute bottom-24 -z-10 bg-[#bebbbb38] left-0 h-[900px] lg:h-[1000px]"></div>
-      <div className="hidden xl:flex skewdiv w-full absolute bottom-16 -z-20 bg-[#bebbbb38] left-0 h-[960px] lg:h-[1060px]"></div>
+      <div className="hidden xl:flex skewdiv w-full absolute bottom-24 -z-10 bg-[#bebbbb38] left-0 h-[1000px]"></div>
+      <div className="hidden xl:flex skewdiv w-full absolute bottom-16 -z-20 bg-[#bebbbb38] left-0 h-[1100px]"></div>
     </div>
   );
 };
