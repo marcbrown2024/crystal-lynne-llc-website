@@ -61,27 +61,29 @@ const Consultation = () => {
           className="w-4/6 flex flex-col items-center px-8 py-32"
         >
           <div className="text-2xl mb-8">
-            <strong>Here's how it works:</strong>
+            <strong>Here&apos;s how it works:</strong>
           </div>
           <ol className="list-decimal ml-8 text-lg mb-4">
             <li className="mb-8">
               <strong>Book a Consultation:</strong> Schedule a 30-minute
-              consultation with our experts to discuss your business's specific
-              needs and challenges. A nominal consultation fee of [insert fee
-              amount] applies.
+              consultation with our experts to discuss your business&apos;s
+              specific needs and challenges. A nominal consultation fee of
+              [insert fee amount] applies.
             </li>
             <li className="mb-8">
               <strong>Valuable Insights:</strong> During the consultation,
-              you'll gain access to our expertise and receive tailored
+              you&apos;ll gain access to our expertise and receive tailored
               recommendations for your business.
             </li>
             <li>
               <strong>Seamless Transition:</strong> If, after the consultation,
-              you choose to proceed with CrystaLynne LLC's services and sign a
-              contract for our business development or software solutions, we'll
-              deduct the full consultation fee from the project's overall cost.
+              you choose to proceed with CrystaLynne LLC&apos;s services and
+              sign a contract for our business development or software
+              solutions, we&apos;ll deduct the full consultation fee from the
+              project&apos;s overall cost.
             </li>
           </ol>
+
           <Link
             href="https://calendly.com/marcbrown2024/crystallynne-llc-consultation"
             target="_blank"
