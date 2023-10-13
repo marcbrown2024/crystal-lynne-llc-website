@@ -110,6 +110,7 @@ const OurApproach = () => {
         >
           {projects.map((project, index) => (
             <motion.div
+              key={index}
               variants={variant2}
               initial="initial"
               animate={index === currentProject ? "animate" : "initial"}

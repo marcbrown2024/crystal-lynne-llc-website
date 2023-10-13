@@ -10,6 +10,7 @@ const ServiceCard = ({ imgUrl, title, description }) => {
           src={imgUrl}
           alt={title}
           fill={true}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 30vw"
           priority
         ></Image>
       </div>

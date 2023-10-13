@@ -47,10 +47,11 @@ const About = () => {
               src={AboutImg}
               alt="/"
               fill={true}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 30vw"
               priority
             />
           </div>
-          <p className="leading-8 p-8">
+          <p className="leading-8 p-12">
             CrystaLynne LLC specializes in custom software solutions to boost
             business growth and efficiency for enterprises of all sizes. We
             optimize operations, automate processes, and help you achieve your
