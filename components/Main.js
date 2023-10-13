@@ -9,7 +9,7 @@ const Main = () => {
   return (
     <div
       id="main"
-      className="breakpoint w-full h-[calc(100vh-4.5rem)] flex items-center justify-center text-center mt-16 mb-12 border-b-2 border-slate-200  "
+      className="breakpoint w-full h-screen flex items-center justify-center text-center mt-16 mb-12 border-b-2 border-slate-200  "
     >
       <div className="w-full h-full flex items-center justify-center p-4 ">
         <motion.div
