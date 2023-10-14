@@ -4,7 +4,6 @@ import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
-import { HiOutlineChevronDoubleUp } from "react-icons/hi";
 import ContactImg from "../public/assets/contactUS.jpeg";
 
 const Contact = () => {
@@ -27,8 +26,8 @@ const Contact = () => {
   };
 
   return (
-    <div id="contact" className="relative w-screen h-auto">
-      <div className="max-w-[1240px] h-auto m-auto px-2 pt-12 pb-4">
+    <div id="contact" className="relative w-screen h-auto ">
+      <div className="max-w-[1240px] h-auto m-auto px-2 xl:pt-12 pb-4">
         <h2 className="titles py-8 mt-8 text-2xl text-center md:text-left md:text-5xl font-bold text-[#3c68cd]">
           Get In Touch
         </h2>
@@ -52,8 +51,12 @@ const Contact = () => {
               </div>
               <div>
                 <h1 className="py-8 text-2xl font-bold">CrystalLynne LLC</h1>
-                <p>------------- </p>
-                <p className="py-4">Some statement here.</p>
+                <p className="py-4">
+                  Don't wait for the competition to catch up. Contact
+                  CrystaLynne LLC today to schedule your consultation and begin
+                  the transformation of your business. Together, we'll chart a
+                  course towards success, efficiency, and growth.
+                </p>
               </div>
               <div>
                 <p className="uppercase pt-8">Connect With Us</p>
@@ -174,16 +177,8 @@ const Contact = () => {
           animate={isInView ? "animate" : "initial"}
           transition={{ duration: 1, delay: 0.5 }}
           className="flex justify-center pt-4"
-        >
-          <Link href="/#main">
-            <div className="darkshadow rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300">
-              <HiOutlineChevronDoubleUp className="text-[#5651e5]" size={30} />
-            </div>
-          </Link>
-        </motion.div>
+        ></motion.div>
       </div>
-      <div className="hidden xl:flex skewdiv w-full absolute -z-10 top-[15%] bg-[#bebbbb38] left-0 h-[750px] lg:h-[850px] skew-y-6"></div>
-      <div className="hidden xl:flex skewdiv w-full absolute -z-20 top-[10%] bg-[#bebbbb38] left-0 h-[850px] lg:h-[950px] skew-y-6"></div>
     </div>
   );
 };

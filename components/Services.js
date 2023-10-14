@@ -20,7 +20,7 @@ const ServicesData = [
   },
   {
     id: 3,
-    title: "Chatbots and AI-driven solution",
+    title: "AI-driven Solutions",
     description:
       "Harness the power of artificial intelligence with our chatbot and AI-driven solutions. Enhance customer support, automate routine inquiries, and deliver exceptional user experiences.",
     image: "/assets/chatbots.jpg",
@@ -84,8 +84,6 @@ const Services = () => {
           </ul>
         </div>
       </div>
-      <div className="hidden xl:flex skewdiv w-full absolute bottom-24 -z-10 bg-[#bebbbb38] left-0 h-[1000px]"></div>
-      <div className="hidden xl:flex skewdiv w-full absolute bottom-16 -z-20 bg-[#bebbbb38] left-0 h-[1100px]"></div>
     </div>
   );
 };

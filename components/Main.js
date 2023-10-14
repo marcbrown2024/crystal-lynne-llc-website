@@ -3,15 +3,14 @@ import React from "react";
 import { motion } from "framer-motion";
 import { AiOutlineMail } from "react-icons/ai";
 import { BsFillPersonLinesFill } from "react-icons/bs";
-import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 
 const Main = () => {
   return (
     <div
       id="main"
-      className="breakpoint w-full h-screen flex items-center justify-center text-center mt-16 mb-12 border-b-2 border-slate-200  "
+      className="breakpoint w-full h-screen flex items-center justify-center text-center mb-12 border-b-2 border-slate-200 "
     >
-      <div className="w-full h-full flex items-center justify-center p-4 ">
+      <div className="w-full h-screen flex items-center justify-center p-4">
         <motion.div
           initial={{ y: 500, opacity: 0, scale: 0.5 }}
           animate={{ y: 0, opacity: 1, scale: 1 }}
@@ -27,21 +26,6 @@ const Main = () => {
             Your Partner in Business Development and Software Solutions.
           </div>
           <div className="flex items-center justify-center gap-4 lg:gap-8">
-            <a href="" target="_blank" rel="noreferrer">
-              <div className="darkshadow text-xl md:text-2xl rounded-full shadow-lg shadow-gray-400 p-4 md:p-6 cursor-pointer hover:scale-110 ease-in duration-300">
-                <FaLinkedinIn />
-              </div>
-            </a>
-            <a href="" target="_blank" rel="noreferrer">
-              <div className="darkshadow text-xl md:text-2xl rounded-full shadow-lg shadow-gray-400 p-4 md:p-6 cursor-pointer hover:scale-110 ease-in duration-300">
-                <FaGithub />
-              </div>
-            </a>
-            <a href="" target="_blank" rel="noreferrer">
-              <div className="darkshadow text-xl md:text-2xl rounded-full shadow-lg shadow-gray-400 p-4 md:p-6 cursor-pointer hover:scale-110 ease-in duration-300">
-                <FaTwitter />
-              </div>
-            </a>
             <Link href="/#contact">
               <div className="darkshadow text-xl md:text-2xl rounded-full shadow-lg shadow-gray-400 p-4 md:p-6 cursor-pointer hover:scale-110 ease-in duration-300">
                 <AiOutlineMail />
@@ -58,8 +42,8 @@ const Main = () => {
           </div>
         </motion.div>
       </div>
-      <div className="skewdiv w-full absolute -z-10 top-[17%] bg-[#bebbbb38] left-0 h-[600px] lg:h-[700px] -skew-y-3"></div>
-      <div className="skewdiv w-full absolute -z-10 top-[14%] bg-[#bebbbb38] left-0 h-[660px] lg:h-[760px] -skew-y-3"></div>
+      <div className="skewdiv w-full fixed -z-10 bg-[#bebbbb38] left-0 h-[500px] lg:h-[750px] -skew-y-3"></div>
+      <div className="skewdiv w-full fixed -z-20 bg-[#bebbbb38] left-0 h-[560px] lg:h-[810px] -skew-y-3"></div>
     </div>
   );
 };

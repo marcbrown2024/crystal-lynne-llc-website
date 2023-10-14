@@ -95,8 +95,6 @@ const Consultation = () => {
           </Link>
         </motion.div>
       </div>
-      <div className="hidden xl:flex skewdiv w-full absolute -z-10 top-[15%] bg-[#bebbbb38] left-0 h-[600px] lg:h-[700px] -skew-y-3"></div>
-      <div className="hidden xl:flex skewdiv w-full absolute -z-20 top-[10%] bg-[#bebbbb38] left-0 h-[700px] lg:h-[800px] -skew-y-3"></div>
     </div>
   );
 };

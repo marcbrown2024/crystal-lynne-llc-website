@@ -89,7 +89,7 @@ const OurApproach = () => {
               Our Approach
             </div>
 
-            <div className="sm:w-[250px] md:w-full flex items-center justify-between gap-8">
+            <div className="w-[250px] md:w-full flex items-center justify-between gap-8">
               <div className="btn hover:text-[#3c68cd] text-[50px]" onClick={handlePrevProject}>
                 <HiArrowLeftCircle/>
               </div>
@@ -138,8 +138,6 @@ const OurApproach = () => {
           ))}
         </motion.div>
       </div>
-      <div className="hidden xl:flex skewdiv w-full absolute -z-10 top-[13%] bg-[#d0cdcd38] left-0 h-[600px] lg:h-[700px] skew-y-3"></div>
-      <div className="hidden xl:flex skewdiv w-full absolute -z-20 top-[10%] bg-[#d0cdcd38] left-0 h-[660px] lg:h-[760px] skew-y-3"></div>
     </div>
   );
 };

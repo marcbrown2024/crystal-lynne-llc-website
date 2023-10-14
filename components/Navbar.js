@@ -1,9 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { Link as ScrollLink } from "react-scroll";
 import React, { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
 import ThemeSwitcher from "./ThemeSwitcher";
 import { motion } from "framer-motion";
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from "react-icons/ai";
@@ -15,7 +14,6 @@ import { BsFillPersonLinesFill } from "react-icons/bs";
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const [shadow, setShadow] = useState(false);
-  const pathname = usePathname();
 
   const handleNav = () => {
     setNav(!nav);
@@ -32,10 +30,9 @@ const Navbar = () => {
     window.addEventListener("scroll", handleShadow);
   }, []);
 
-  // Event listener to close the navigation when clicking anywhere on the screen
   useEffect(() => {
     const closeNavOnOutsideClick = (e) => {
-      if (nav && e.target !== document.getElementById("navToggle")) {
+      if (nav && e.target.closest("#navMenu") === null) {
         setNav(false);
       }
     };
@@ -64,7 +61,7 @@ const Navbar = () => {
         className="flex justify-between items-center w-full h-full px-2 2xl:px-16"
       >
         <div>
-          <Link href="/">
+          <ScrollLink to="main" smooth={true} offset={-70} duration={200}>
             {/* <Image
               src={NavLogo}
               alt='/'
@@ -73,46 +70,87 @@ const Navbar = () => {
               className='cursor-pointer'
             /> */}
             LOGO
-          </Link>
+          </ScrollLink>
         </div>
 
-        <div>
+        <div className="flex items-center justify-center gap-x-8">
           <ul className="hidden lg:flex items-center justify-center gap-8">
             <li>
-              <Link className="liItems relative z-50" href="/#main">
+              <ScrollLink
+                to="main"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={200}
+                className="liItems relative z-50"
+              >
                 Home
-              </Link>
+              </ScrollLink>
             </li>
             <li>
-              <Link className="liItems relative z-50" href="/#about">
+              <ScrollLink
+                to="about"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={200}
+                className="liItems relative z-50"
+              >
                 About
-              </Link>
+              </ScrollLink>
             </li>
             <li>
-              <Link className="liItems relative z-50" href="/#services">
+              <ScrollLink
+                to="services"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={200}
+                className="liItems relative z-50"
+              >
                 Services
-              </Link>
+              </ScrollLink>
             </li>
             <li>
-              <Link className="liItems relative z-50" href="/#ourApproach">
+              <ScrollLink
+                to="ourApproach"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={200}
+                className="liItems relative z-50"
+              >
                 Our Approach
-              </Link>
+              </ScrollLink>
             </li>
             <li>
-              <Link className="liItems relative z-50" href="/#consultation">
+              <ScrollLink
+                to="consultation"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={200}
+                className="liItems relative z-50"
+              >
                 Book A Consultation
-              </Link>
+              </ScrollLink>
             </li>
             <li>
-              <Link className="liItems relative z-50" href="/#contact">
+              <ScrollLink
+                to="contact"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={200}
+                className="liItems relative z-50"
+              >
                 Contact
-              </Link>
-            </li>
-            <li className="flex items-center justify-center">
-              <ThemeSwitcher />
+              </ScrollLink>
             </li>
           </ul>
-
+          <div className="flex items-center justify-center">
+            <ThemeSwitcher />
+          </div>
           {/* Hamburger Icon */}
           <div onClick={handleNav} className="relative z-50 lg:hidden">
             <AiOutlineMenu size={25} />
@@ -127,74 +165,112 @@ const Navbar = () => {
         }
       >
         <div
+          id="navMenu"
           className={
             nav
-              ? "navbar bg-[#ecf0f3] fixed left-0 top-0 w-[75%] sm:w-[65%] md:w-[45%] h-screen p-10 ease-in duration-500"
-              : "fixed left-[-300%] top-0 p-10 ease-in duration-500"
+              ? "navbar bg-[#ecf0f3] fixed left-0 top-0 w-[75%] sm:w-[65%] md:w-[45%] h-screen p-8 ease-in duration-500 flex flex-col items-start gap-20"
+              : "fixed left-[-300%] top-0 ease-in duration-500 h-screen"
           }
         >
           <div>
             <div className="w-full flex items-center justify-between">
-              <Link href="/">
+              <ScrollLink
+                to="main"
+                smooth={true}
+                offset={-70}
+                duration={200}
+                className="cursor-pointer flex items-center justify-center"
+              >
                 {/* <Image
-                    src={NavLogo}
-                    width='87'
-                    height='35'
-                    alt='/'
-                  /> */}
-              </Link>
-
-              <div className="w-72 flex items-center justify-center p-2 gap-x-20 ">
-                <div className="relative top-2 right-8">
-                  <ThemeSwitcher />
-                </div>
-                <div
-                  id="navToggle"
-                  onClick={handleNav}
-                  className="darkshadow rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer"
-                >
-                  <AiOutlineClose />
-                </div>
+              src={NavLogo}
+              alt='/'
+              width='125'
+              height='50'
+                          /> */}
+                LOGO
+              </ScrollLink>
+              <div
+                id="navToggle"
+                onClick={handleNav}
+                className="darkshadow rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer"
+              >
+                <AiOutlineClose />
               </div>
             </div>
-            <div className="border-b border-gray-500 my-6">
-              <p className="w-[85%] md:w-[90%] py-4 text-center">
+            <div className="border-b border-gray-500 mt-6">
+              <p className="w-auto py-4 text-center">
                 Take Your Business to the Next Level
               </p>
             </div>
           </div>
-          <div className="pt-8 flex flex-col">
-            <ul className="uppercase">
-              <Link href="/#main">
+          <div className="flex flex-col">
+            <ul className="flex flex-col items-start justify-center uppercase">
+              <ScrollLink
+                to="main"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={200}
+              >
                 <li onClick={() => setNav(false)} className="py-4 text-sm">
                   Home
                 </li>
-              </Link>
-              <Link href="/#about">
+              </ScrollLink>
+              <ScrollLink
+                to="about"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={200}
+              >
                 <li onClick={() => setNav(false)} className="py-4 text-sm">
                   About
                 </li>
-              </Link>
-              <Link href="/#services">
+              </ScrollLink>
+              <ScrollLink
+                to="services"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={200}
+              >
                 <li onClick={() => setNav(false)} className="py-4 text-sm">
                   Services
                 </li>
-              </Link>
-              <Link href="/#ourApproach">
+              </ScrollLink>
+              <ScrollLink
+                to="ourApproach"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={200}
+              >
                 <li onClick={() => setNav(false)} className="py-4 text-sm">
                   Our Approach
                 </li>
-              </Link>
-              <Link href="/#consultation">
+              </ScrollLink>
+              <ScrollLink
+                to="consultation"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={200}
+              >
                 <li onClick={() => setNav(false)} className="py-4 text-sm">
                   Book A Consultation
                 </li>
-              </Link>
-              <Link href="/#contact">
+              </ScrollLink>
+              <ScrollLink
+                to="contact"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={200}
+              >
                 <li onClick={() => setNav(false)} className="py-4 text-sm">
                   Contact
                 </li>
-              </Link>
+              </ScrollLink>
             </ul>
             <div className="pt-20 flex flex-col items-center justify-center">
               <p className="uppercase tracking-widest text-[#427ed1] text-center">
@@ -216,14 +292,17 @@ const Navbar = () => {
                     <FaTwitter />
                   </div>
                 </a>
-                <Link href="/consultation">
+                <a
+                  href="https://calendly.com/marcbrown2024/crystallynne-llc-consultation"
+                  target="_blank"
+                >
                   <div
                     onClick={() => setNav(!nav)}
                     className="darkshadow rounded-full shadow-md shadow-gray-700 p-3 mr-2 md:mr-0 cursor-pointer hover:scale-105 ease-in duration-300"
                   >
                     <BsFillPersonLinesFill />
                   </div>
-                </Link>
+                </a>
               </div>
             </div>
           </div>

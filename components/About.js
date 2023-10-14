@@ -106,7 +106,7 @@ const About = () => {
                 target="_blank"
               >
                 <HiChatBubbleLeftRight />
-                <p className="py-2 text-[#3c68cd] cursor-pointer animate-pulse">
+                <p className="titles py-2 text-[#3c68cd] cursor-pointer animate-pulse">
                   <span className="text-opacity-100">Book a consultation.</span>
                 </p>
               </Link>
@@ -114,8 +114,6 @@ const About = () => {
           </div>
         </motion.div>
       </div>
-      <div className="hidden xl:flex skewdiv w-full absolute -z-10 bg-[#bebbbb38] left-0 h-[750px] lg:h-[850px]"></div>
-      <div className="hidden xl:flex skewdiv w-full absolute -z-20 bg-[#bebbbb38] left-0 h-[800px] lg:h-[900px]"></div>
     </div>
   );
 };
