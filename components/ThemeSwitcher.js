@@ -20,7 +20,7 @@ const ThemeSwitcher = () => {
       setEnabled(userPreference === "dark");
       setTheme(userPreference);
     }
-  }, []);
+  }, [setTheme]);
 
   const handleSwitchChange = () => {
     const newTheme = theme === "light" ? "dark" : "light";

@@ -52,9 +52,9 @@ const Contact = () => {
               <div>
                 <h1 className="py-8 text-2xl font-bold">CrystalLynne LLC</h1>
                 <p className="py-4">
-                  Don't wait for the competition to catch up. Contact
+                  Don&apos;t wait for the competition to catch up. Contact
                   CrystaLynne LLC today to schedule your consultation and begin
-                  the transformation of your business. Together, we'll chart a
+                  the transformation of your business. Together, we&apos;ll chart a
                   course towards success, efficiency, and growth.
                 </p>
               </div>
