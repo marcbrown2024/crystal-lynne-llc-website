@@ -26,18 +26,15 @@ const Main = () => {
             Your Partner in Business Development and Software Solutions.
           </div>
           <div className="flex items-center justify-center gap-4 lg:gap-8">
-            <Link href="/#contact">
-              <div className="darkshadow text-xl md:text-2xl rounded-full shadow-lg shadow-gray-400 p-4 md:p-6 cursor-pointer hover:scale-110 ease-in duration-300">
-                <AiOutlineMail />
-              </div>
-            </Link>
             <Link
               href="https://calendly.com/marcbrown2024/crystallynne-llc-consultation"
               target="_blank"
+              className="group relative flex items-center justify-between"
             >
               <div className="darkshadow text-xl md:text-2xl rounded-full shadow-lg shadow-gray-400 p-4 md:p-6 cursor-pointer hover:scale-110 ease-in duration-300">
                 <BsFillPersonLinesFill />
               </div>
+              <p className="absolute left-12 w-60 -skew-y-3 p-4 hidden group-hover:block">Book a consultation</p>
             </Link>
           </div>
         </motion.div>
