@@ -85,7 +85,7 @@ const OurApproach = () => {
             animate={isInView ? "animate" : "initial"}
             transition={{ duration: 1, delay: 0.5 }}
           >
-            <div className="titles text-2xl text-center md:text-6xl font-bold text-[#3c68cd] my-12">
+            <div className="titles text-2xl text-center md:text-6xl font-bold text-[#3c68cd] mt-8 lg:-mt-20 mb-12">
               Our Approach
             </div>
 
@@ -130,9 +130,9 @@ const OurApproach = () => {
                 <h4 className="text-3xl font-semibold text-center mb-8">
                   {project.title}
                 </h4>
-                <p className="text-lg text-center md:text-left px-4">
+                <div className="w-80 lg:w-full text-lg text-left p-4">
                   {project.description}
-                </p>
+                </div>
               </div>
             </motion.div>
           ))}
